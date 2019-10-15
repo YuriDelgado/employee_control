@@ -39,7 +39,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'haml'
 
 gem 'jquery-rails'
-gem 'bootstrap', '~>4.0.0'
+gem 'bootstrap', '~> 4.3.1'
+
+gem 'devise', '~> 4.7.1'
+gem 'devise_invitable', '~> 2.0.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 4.0.0.beta2'
