@@ -5,12 +5,7 @@
   #navbarNav.collapse.navbar-collapse
     %ul.navbar-nav
       %li.nav-item.active
-        %a.nav-link{:href => "#"}
-          Features
-          %span.sr-only (current)
-      -# %li.nav-item
-        -# %a.nav-link.disabled{:href => "#"} Disabled
-
+        = link_to 'Employees', users_path, class: "nav-link"
     .navbar-text.ml-auto
       %ul.navbar-nav
         - if current_user
