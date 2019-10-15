@@ -41,6 +41,9 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'bootstrap', '~>4.0.0'
 
+gem 'devise', '~> 4.7.1'
+gem 'devise_invitable', '~> 2.0.0'
+
 group :development, :test do
   gem 'rspec-rails', '~> 4.0.0.beta2'
   gem 'factory_bot_rails'
