@@ -1,19 +1,25 @@
-%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark{:style => "background-color: #71da71;"}
-  %a.navbar-brand{:href => "#"} Navbar
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light{:style => "background-color: #71da71;"}
+  %a.navbar-brand{:href => "/"} Navbar
   %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", :type => "button"}
     %span.navbar-toggler-icon
   #navbarNav.collapse.navbar-collapse
     %ul.navbar-nav
       %li.nav-item.active
         %a.nav-link{:href => "#"}
-          Home
+          Features
           %span.sr-only (current)
-      %li.nav-item
-        %a.nav-link{:href => "#"} Features
       -# %li.nav-item
         -# %a.nav-link.disabled{:href => "#"} Disabled
 
-    %span.navbar-text.ml-auto
+    .navbar-text.ml-auto
       %ul.navbar-nav
-        %li.nav-item
-          = link_to 'Login', "#", class: "nav-link disabled"
+        - if current_user
+          %li.nav-item.dropdown
+            %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              #{current_user.name}
+            .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+              = link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item"
+              = link_to 'Logout', destroy_user_session_path, class: "dropdown-item", method: :delete
+        - else
+          %li.nav-item
+            = link_to 'Login', user_session_path, class: "nav-link"
