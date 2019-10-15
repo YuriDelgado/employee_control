@@ -1,0 +1,6 @@
+.col-md-8.col-md-offset-2
+  - flash.each do |key, value|
+    - alert_type = (key == 'notice' ? 'success' : 'danger')  
+    %div{:class => "alert alert-#{alert_type}" }
+      %a.close{"data-dismiss" => "alert", :href => "#"} ×
+      = value

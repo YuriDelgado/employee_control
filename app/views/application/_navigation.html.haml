@@ -4,8 +4,9 @@
     %span.navbar-toggler-icon
   #navbarNav.collapse.navbar-collapse
     %ul.navbar-nav
-      %li.nav-item.active
-        = link_to 'Employees', users_path, class: "nav-link"
+      - if current_user && current_user.admin?
+        %li.nav-item.active
+          = link_to 'Employees', users_path, class: "nav-link"
     .navbar-text.ml-auto
       %ul.navbar-nav
         - if current_user
