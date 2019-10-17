@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :admin_only
   
   def index
-    @users = User.where(admin: false)
+    @users = current_user.employees
   end
 
 private

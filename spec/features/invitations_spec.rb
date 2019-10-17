@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'invitations' do
-  let(:admin) { create :user, admin: true }
+  let(:admin) { create :user }
   let(:employee) { 'employee@test.com' }
 
   it 'shows invitations after invite a user' do
@@ -16,7 +16,7 @@ describe 'invitations' do
   end
 
   it 'can accept an user invitation' do
-    invite = User.invite!({ email: employee}, admin)
+    invite = User.invite!({ email: employee, admin_id: admin.id}, admin)
     raw_token = invite.instance_variable_get(:@raw_invitation_token)
     visit accept_user_invitation_path(invitation_token: raw_token)
     

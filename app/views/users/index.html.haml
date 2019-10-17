@@ -16,5 +16,7 @@
       %h3.extra-margin-top Invite user
       = form_for(User.new, url: user_invitation_path, html: { class: 'form-inline' }) do |f|
         = f.text_field :email, placeholder: 'Email', label: false, class: 'form-control'
+        = f.hidden_field :admin_id, value: current_user.id
+
         .input-group-append
           = f.submit 'Invite', class: 'btn btn-outline-primary'

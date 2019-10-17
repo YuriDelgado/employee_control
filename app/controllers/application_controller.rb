@@ -10,6 +10,7 @@ protected
        devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :email, :password)}
        devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :email, :password, :current_password)}
        devise_parameter_sanitizer.permit(:accept_invitation) { |u| u.permit(:name, :password, :confirm_password, :invitation_token)}
+       devise_parameter_sanitizer.permit(:invite) { |u| u.permit(:email, :admin_id)}
   end
 
   def set_mailer_host
