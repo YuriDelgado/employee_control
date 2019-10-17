@@ -4,4 +4,6 @@ class User < ApplicationRecord
   devise  :invitable, :database_authenticatable, :registerable,
           :recoverable, :rememberable, :validatable, :invitable,
           invite_for: 2.weeks
+
+  validates_confirmation_of :password
 end

@@ -1,5 +1,7 @@
 module UsersHelper
   def user_status user
-    'Invitation pending'
+    user.invitation_accepted? ?
+      content_tag(:span, 'accepted') :
+      'Invitation pending'
   end
 end
